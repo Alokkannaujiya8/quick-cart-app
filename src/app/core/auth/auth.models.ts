@@ -1,6 +1,9 @@
-﻿export interface User {
+export interface User {
   id: string;
   fullName: string;
+  firstName?: string | null;
+  lastName?: string | null;
+  profilePictureUrl?: string | null;
   phoneNumber?: string;
   email?: string | null;
   status?: string;
@@ -11,9 +14,9 @@
 
 export interface TokenResponse {
   accessToken: string;
-  accessTokenExpiresAt?: number;
+  accessTokenExpiresAt?: string | number;
   refreshToken: string;
-  refreshTokenExpiresAt?: number;
+  refreshTokenExpiresAt?: string | number;
 }
 
 export interface AuthResponse {
@@ -24,6 +27,7 @@ export interface AuthResponse {
 
 export interface LoginRequest {
   login?: string;
+  email?: string;
   emailOrPhone?: string;
   password: string;
   deviceName?: string | null;
@@ -35,4 +39,12 @@ export interface RegisterRequest {
   email?: string | null;
   password: string;
   deviceName?: string | null;
+}
+
+export interface SendOtpResponse {
+  success: boolean;
+}
+
+export interface GoogleAuthRequest {
+  idToken: string;
 }
